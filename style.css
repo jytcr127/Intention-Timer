@@ -19,8 +19,6 @@
 }
 
 #create-activity {
-	display:flex;
-	justify-content: center;
 	background-color: #46424D;
 	height:700px;
 	width:93%;
@@ -56,14 +54,15 @@
 	width:1%;
 }
 
-#content {
-	display:flex;
-	justify-content: space-around;
+/*#content {
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows:1fr 1fr 1fr;
 	border:2px solid green;
 	width:80%;
 	height:80%;
 	margin:5%;
-}
+}*/
 
 span {
 	border:2px solid yellow;
@@ -80,4 +79,64 @@ h2 {
 .hmm {
 	border:2px solid #FFF;
 	padding:20px;
+}
+
+#something {
+	color:#FFF;
+}
+
+.title {
+	display:flex;
+	justify-content: center;
+}
+
+#content{
+	display:flex;
+	justify-content: center;
+}
+
+#something {
+	display:flex;
+	justify-content: center;
+}
+#else, #dog {
+	display:flex;
+	justify-content: space-around;
+	color:#FFF;
+}
+
+input {
+  display:flex;
+  justify-content: center;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid #FFF;
+  margin:36px auto;
+  width:80%;
+}
+
+.input-2 {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid #FFF;
+  margin:30px auto;
+  width:20%;
+}
+
+#wolf {
+	display:flex;
+}
+
+button {
+	width:40%;
+	height:40px;
+	border-radius: 50%;
+}
+
+#submit {
+	display: flex;
+	justify-content: center;
+	margin:50px auto;
 }
