@@ -140,3 +140,9 @@ button {
 	justify-content: center;
 	margin:50px auto;
 }
+
+.purple {
+	color:purple;
+	border:3px solid purple;
+	padding:20px;
+}
