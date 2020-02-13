@@ -221,7 +221,8 @@ button[data-setter]:hover { opacity: 0.5; }
 }
 
 #pause {
-	display:grid;
+  display:flex;
+  justify-content: center;
   outline: none;
   background: transparent;
   border: none;
@@ -229,21 +230,24 @@ button[data-setter]:hover { opacity: 0.5; }
   width: 50px;
   height: 50px;
   position: relative;
+
 }
 
 .play::before {
-  display: grid;
+  display: flex;
+  justify-content: center;
   content: "";
-  position: absolute;
   top: 8px;
   left: 16px;
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
   border-left: 22px solid #F7958E;
+  margin-top:176px;
+  margin-left:15px;
 }
 
 .pause::after {
-	display:grid;
+  display:flex;
   content: "";
   position: absolute;
   top: 8px;
@@ -255,6 +259,8 @@ button[data-setter]:hover { opacity: 0.5; }
   border: 5px solid #F7958E;
   border-top: none;
   border-bottom: none;
+  margin-top:176px;
+  margin-left:1px;
 }
 
 #pause:hover { opacity: 0.8; }
@@ -299,4 +305,11 @@ button[data-setter]:hover { opacity: 0.5; }
 #final {
 	display:grid;
 	justify-items: center;
+}
+
+#log-button {
+	border-radius: 50%;
+	font-size: 25px;
+	width:34%;
+	height:100px;
 }

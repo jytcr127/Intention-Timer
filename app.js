@@ -8,8 +8,6 @@ console.log(cat);
 let fox = document.querySelectorAll('.hmm')[2];
 console.log(fox);
 
-
-
 dog.addEventListener('click', function() {
 	button.innerText = "Start Activity";
 	dog.classList.toggle('hmm');
@@ -106,6 +104,7 @@ let act = document.querySelector('h2');
 let timer1 = document.querySelector('#else');
 
 button.addEventListener('click', function(e) {
+
 		if(dog.classList.value !== 'purple' && fox.classList.value !== 'purple' && cat.classList.value !== 'purple') {
 		e.preventDefault();
 		button.innerText = "Please choose a category";
@@ -130,7 +129,17 @@ button.addEventListener('click', function(e) {
 	newHeader.innerText = 'Current Activity';
 	act.textContent = task.value;
 
-
+let accomplishment = document.querySelector('#accomplish');
+let ruff = document.querySelector('#ruff');
+ruff.removeChild(accomplishment);
+let time1 = document.querySelector('#time1');
+time1.innerHTML = '';
+let time2 = document.querySelector('#time2');
+time2.innerHTML = '';
+let submit = document.querySelector('#submit');
+submit.innerHTML = '';
+minute.parentNode.removeChild(minute);
+second.parentNode.removeChild(second);
 
 timer1.innerHTML = `<div class="setters">
   <div class="minutes-set">
@@ -162,7 +171,6 @@ let timer2 = document.querySelector('#content');
 
 timer2.innerHTML = `  <span class="display-remain-time"></span>`
 let accomplish = document.querySelector('#accomplish');
-accomplish.innerHTML = "";
 
 
 //circle start
@@ -213,17 +221,20 @@ function timer (seconds){ //counts time, takes seconds
   
   intervalTimer = setInterval(function(){
     timeLeft = Math.round((remainTime - Date.now()) / 1000);
-    if(timeLeft < 0){
+    if(timeLeft === 0){
+    	submit.innerHTML = `<button id = 'log-button'>Log Activity</button>`
       clearInterval(intervalTimer);
-      isStarted = false;
-      setterBtns.forEach(function(btn){
-        btn.disabled = false;
+      isStarted = true;
+      pauseBtn.disabled = true;
+      /*setterBtns.forEach(function(btn){
+        btn.disabled = true;
         btn.style.opacity = 1;
-      });
-      displayTimeLeft(wholeTime);
-      pauseBtn.classList.remove('pause');
-      pauseBtn.classList.add('play');
-      return ;
+        pauseBtn.disabled = true;
+      });*/
+      //displayTimeLeft(wholeTime);
+      //pauseBtn.classList.remove('pause');
+      //pauseBtn.classList.add('play');
+      //return ;
     }
     displayTimeLeft(timeLeft);
   }, 1000);
