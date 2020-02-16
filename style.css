@@ -216,7 +216,7 @@ button[data-setter]:hover { opacity: 0.5; }
 .display-remain-time {
   font-family: 'Roboto';
   font-weight: 100;
-  font-size: 65px;
+  font-size: 50px;
   color: #F7958E;
 }
 
@@ -234,33 +234,34 @@ button[data-setter]:hover { opacity: 0.5; }
 }
 
 .play::before {
-  display: flex;
-  justify-content: center;
-  content: "";
-  top: 8px;
-  left: 16px;
-  border-top: 15px solid transparent;
-  border-bottom: 15px solid transparent;
-  border-left: 22px solid #F7958E;
-  margin-top:176px;
-  margin-left:15px;
+    display: flex;
+    justify-content: center;
+    content: "";
+    top: 8px;
+    left: 16px;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 22px solid #F7958E;
+    margin-top: 146px;
+    margin-left: 12px;
 }
 
 .pause::after {
-  display:flex;
-  content: "";
-  position: absolute;
-  top: 8px;
-  left: 12px;
-  width: 15px;
-  height: 30px;
-  background-color: transparent;
-  border-radius: 1px;
-  border: 5px solid #F7958E;
-  border-top: none;
-  border-bottom: none;
-  margin-top:176px;
-  margin-left:1px;
+	display: flex;
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    width: 15px;
+    height: 30px;
+    background-color: transparent;
+    border-radius: 1px;
+    border: 5px solid #F7958E;
+    border-top: none;
+    border-bottom: none;
+    margin-top: 142px;
+    margin-left: 2px;
+}
 }
 
 #pause:hover { opacity: 0.8; }
@@ -309,7 +310,13 @@ button[data-setter]:hover { opacity: 0.5; }
 
 #log-button {
 	border-radius: 50%;
-	font-size: 25px;
-	width:34%;
-	height:100px;
+    font-size: 25px;
+    width: 25%;
+    height: 80px;
 }
+
+   /* border-radius: 50%;
+    font-size: 18px;
+    width: 21%;
+    height: 76px;
+    margin-top: -7%;*/

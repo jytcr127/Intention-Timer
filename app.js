@@ -152,7 +152,7 @@ timer1.innerHTML = `<div class="setters">
   <span class="display-remain-time"></span>
   <button class="play" id="pause"></button>
 <div class="circle">
-  <svg width="300" viewBox="0 0 220 220">
+  <svg width="243" viewBox="0 0 220 220">
      <g transform="translate(110,110)">
         <circle r="100" class="e-c-base"/>
         <g transform="rotate(-90)">
