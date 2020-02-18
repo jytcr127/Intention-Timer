@@ -315,8 +315,40 @@ button[data-setter]:hover { opacity: 0.5; }
     height: 80px;
 }
 
-   /* border-radius: 50%;
-    font-size: 18px;
-    width: 21%;
-    height: 76px;
-    margin-top: -7%;*/
+.activity-tracker {
+	display: flex;	
+	justify-content: center;
+	color: #FFF;
+	font-family: 'Montserrat', sans-serif;
+}
+
+
+/* Card Generating */
+
+
+#cardCategory {
+	font-size: 15px;
+	margin:8px;
+	color:#FFF;
+	font-weight:bold;
+}
+
+#cardTime {
+	font-size:20px;
+	margin:8px;
+	color:#FFF;
+	font-weight:lighter;
+}
+
+#cardTask {
+	font-size: 15px;
+	color: #FFF;
+	margin:8px;
+}
+
+#articleCard {
+	background:#46424D;
+	height:81px;
+	width:97%;
+	margin:4px;
+}

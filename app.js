@@ -8,6 +8,8 @@ console.log(cat);
 let fox = document.querySelectorAll('.hmm')[2];
 console.log(fox);
 
+let categoryHeader;
+
 dog.addEventListener('click', function() {
 	button.innerText = "Start Activity";
 	dog.classList.toggle('hmm');
@@ -17,6 +19,7 @@ dog.addEventListener('click', function() {
 		cat.style.pointerEvents = 'none';
 		fox.style.pointerEvents = 'none';
 		category_error.innerText = "";
+		categoryHeader = dog.textContent;
 	}  
 	if (dog.classList.value !== 'purple') {
 		cat.style.pointerEvents = 'auto';
@@ -33,6 +36,7 @@ cat.addEventListener('click', function() {
 		dog.style.pointerEvents = 'none';
 		fox.style.pointerEvents = 'none';
 		category_error.innerText = "";
+		categoryHeader = cat.textContent;
 	}  
 	if (cat.classList.value !== 'purple') {
 		dog.style.pointerEvents = 'auto';
@@ -49,6 +53,7 @@ fox.addEventListener('click', function() {
 		dog.style.pointerEvents = 'none';
 		cat.style.pointerEvents = 'none';
 		category_error.innerText = "";
+		categoryHeader = fox.textContent;
 	}  
 	if (fox.classList.value !== 'purple') {
 		dog.style.pointerEvents = 'auto';
@@ -213,6 +218,14 @@ function changeWholeTime(seconds){
   }
 }
 
+let rightSection = document.querySelector('#tracker'); // update right side of page
+let card = document.createElement('article');
+let removeSection = document.querySelectorAll('.activity-tracker');
+card.innerHTML = `<article id = 'articleCard'> 
+<p id = 'cardCategory'>${categoryHeader}</p>
+<p id = 'cardTime'>${minute.value} MINUTES ${second.value} SECONDS</p>
+<p id = 'cardTask'>${task.value}</p>
+</article>`
 
 
 function timer (seconds){ //counts time, takes seconds
@@ -226,15 +239,11 @@ function timer (seconds){ //counts time, takes seconds
       clearInterval(intervalTimer);
       isStarted = true;
       pauseBtn.disabled = true;
-      /*setterBtns.forEach(function(btn){
-        btn.disabled = true;
-        btn.style.opacity = 1;
-        pauseBtn.disabled = true;
-      });*/
-      //displayTimeLeft(wholeTime);
-      //pauseBtn.classList.remove('pause');
-      //pauseBtn.classList.add('play');
-      //return ;
+      rightSection.appendChild(card);
+      removeSection.forEach(function(a) {
+      	rightSection.removeChild(a);
+      })
+      console.log(categoryHeader);
     }
     displayTimeLeft(timeLeft);
   }, 1000);
@@ -277,8 +286,87 @@ pauseBtn.addEventListener('click',pauseTimer);
 
 
 
-	/*<div id = 'experiment'>
-  <div class="display-remain-time"></div>
-  <button class="play" id="pause"></button>
-  </div>*/
+
+
+
+
+  /*function createCard2() {
+  rightSection.innerHTML = `
+<article class="card card-one">
+      <h5 class="small-title-challenger-one-instance-two">${challengerName1.value}</h5>
+      <p class= "versus">VS</p>
+      <h5 class="small-title-challenger-two small-title-challenger-two-instance-two">${challengerName2.value}</h5>
+    </div>
+    <div class="challenger-status">
+      <h3 class="winner">${challengerName2.value}</h3>
+      <h3 class = "card-winner">WINNER</h3>
+    </div>
+    <div class="guesses-timer-clear">
+      <p> Number of Guesses: <span class="number-of-guesses">${numbGuess}</span></p>
+      <button class="clear-card" type="button" name="button">X</button>
+    </div>
+</article>
+
+  ` + rightSection.innerHTML;
+  	numbGuess = 0;
+}
+
+function createCard1() {
+  rightSection.innerHTML =`
+<article class="card card-one">
+    <div class="challenger-names">
+      <h5 class="small-title-challenger-one-instance-two">${challengerName1.value}</h5>
+      <p class= "versus">VS</p>
+      <h5 class="small-title-challenger-two small-title-challenger-two-instance-two">${challengerName2.value}</h5>
+    </div>
+    <div class="challenger-status">
+      <h3 class="winner">${challengerName1.value}</h3>
+      <h3 class = "card-winner">WINNER</h3>
+    </div>
+    <div class="guesses-timer-clear">
+      <p> Number of Guesses: <span class="number-of-guesses">${numbGuess}</span>  </p>
+      <button class="clear-card" type="button" name="button">X</button>
+    </div>
+</article>
+
+  ` + rightSection.innerHTML;
+  	numbGuess = 0;
+
+}
+function createCard3() {
+  rightSection.innerHTML =`
+<article class="card card-one">
+    <div class="challenger-names">
+      <h5 class="small-title-challenger-one-instance-two">${challengerName1.value}</h5>
+      <p class= "versus">VS</p>
+      <h5 class="small-title-challenger-two small-title-challenger-two-instance-two">${challengerName2.value}</h5>
+    </div>
+    <div class="challenger-status">
+      <h3 class = "card-winner">WINNER</h3>
+            <h3 class="winner">You Both Win!</h3>
+    </div>
+    <div class="guesses-timer-clear">
+      <p> Number of Guesses: <span class="number-of-guesses">${numbGuess}</span>  </p>
+      <button class="clear-card" type="button" name="button">X</button>
+    </div>
+</article>
+
+  ` + rightSection.innerHTML;
+    numbGuess = 0;
+
+}
+
+submitButton.addEventListener("click", determineWinner); //This will run the determineWinner function when the submit button is clicked
+
+
+function determineWinner () {
+  if(player1Guess.value == newNumberGenerated && player2Guess.value == newNumberGenerated) {
+    createCard3()
+  } else if (player2Guess.value == newNumberGenerated) {
+    createCard2();
+  } else if (player1Guess.value == newNumberGenerated) {
+    createCard1();
+  }
+
+}*/
 
