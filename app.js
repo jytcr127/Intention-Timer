@@ -8,10 +8,11 @@ console.log(cat);
 let fox = document.querySelectorAll('.hmm')[2];
 console.log(fox);
 
+
 let categoryHeader;
 
 dog.addEventListener('click', function() {
-	button.innerText = "Start Activity";
+	button.innerText = "Submit";
 	dog.classList.toggle('hmm');
 	dog.classList.toggle('purple');
 
@@ -28,7 +29,7 @@ dog.addEventListener('click', function() {
 })
 
 cat.addEventListener('click', function() {
-	button.innerText = "Start Activity";
+	button.innerText = "Submit";
 	cat.classList.toggle('hmm');
 	cat.classList.toggle('purple');
 
@@ -45,7 +46,7 @@ cat.addEventListener('click', function() {
 })
 
 fox.addEventListener('click', function() {
-	button.innerText = "Start Activity";
+	button.innerText = "Submit";
 	fox.classList.toggle('hmm');
 	fox.classList.toggle('purple');
 
@@ -66,7 +67,7 @@ let category_error = document.getElementById('category-error');
 
 
 task.addEventListener('keypress', function(e) {
-	button.innerText = "Start Activity";
+	button.innerText = "Submit";
 	task_error.innerText = "";
 	if(dog.classList.value !== 'purple' && fox.classList.value !== 'purple' && cat.classList.value !== 'purple') {
 		e.preventDefault();
@@ -83,7 +84,7 @@ let task_error = document.getElementById('task-error');
 
 
 minute.addEventListener('keypress', function(e) {
-	button.innerText = "Start Activity";
+	button.innerText = "Submit";
 	minute_error.innerText = "";
 	if(task.value === "") {
 		e.preventDefault();
@@ -94,7 +95,7 @@ minute.addEventListener('keypress', function(e) {
 let minute_error = document.getElementById('minute-error');
 
 second.addEventListener('keypress', function(e) {
-	button.innerText = "Start Activity";
+	button.innerText = "Submit";
 	if(minute.value === "") {
 		e.preventDefault();
 		minute_error.innerText = "Please enter minutes"
@@ -144,9 +145,9 @@ let rightSection = document.querySelector('#tracker');
 let card = document.createElement('article');
 rightSection.appendChild(card);
 card.innerHTML = `<article id = 'articleCard'> 
-<p id = 'cardCategory'>${categoryHeader}</p>
-<p id = 'cardTime'>${minute.value} MINUTES ${second.value} SECONDS</p>
-<p id = 'cardTask'>${task.value}</p>
+<p id = 'cardCategory'>Category: ${categoryHeader}</p>
+<p id = 'cardTime'>Time: ${minute.value} MINUTES ${second.value} SECONDS</p>
+<p id = 'cardTask'>Task: ${task.value}</p>
 <div class="setters">
   <div class="minutes-set">
   </div>
@@ -220,9 +221,6 @@ function changeWholeTime(seconds){
   }
 }
 // update right side of page
-
-      const template = document.querySelector('template');
-const node = document.importNode(template.content, true);
 function timer (seconds){ //counts time, takes seconds
   let remainTime = Date.now() + (seconds * 1000);
   displayTimeLeft(seconds);
@@ -284,12 +282,6 @@ function displayTimeLeft (timeLeft){ //displays time on the input
 pauseBtn.addEventListener('click',pauseTimer);
 });
 
-let logButton = document.querySelector('#log-button');
-let square = document.querySelector('#square');
-let main = document.querySelector('#main');
-let cheese = document.querySelector('#cheeseburger');
-let test = document.querySelector('#test');
-let old = document.querySelector('#old');
 
 
 

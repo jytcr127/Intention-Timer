@@ -53,6 +53,7 @@
 	width:1%;
 }
 
+
 h2 {
 	margin:30px;
 	color:#FFF;
@@ -155,10 +156,10 @@ input {
 }
 
 #submit-button {
-	border-radius: 50%;
-	font-size: 25px;
-	width:34%;
-	height:70px;
+    border-radius: 50%;
+    font-size: 25px;
+    width: 20%;
+    height: 60px;
 }
 
 input {
@@ -282,6 +283,7 @@ button[data-setter]:hover { opacity: 0.5; }
 	display: grid;
 	justify-content: center;
 }
+
 
 
 #final {
