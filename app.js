@@ -107,6 +107,7 @@ let button = document.getElementById('submit-button');
 let newHeader = document.querySelector('.header1');
 let act = document.querySelector('h2');
 let timer1 = document.querySelector('#else');
+let removeHeaders = document.querySelectorAll('.activity-tracker');
 
 button.addEventListener('click', function(e) {
 
@@ -131,22 +132,22 @@ button.addEventListener('click', function(e) {
 		newHeader.preventDefault();
 	}
 
-	newHeader.innerText = 'Current Activity';
-	act.textContent = task.value;
-
+removeHeaders.forEach(element => {
+  element.remove();
+})
 let accomplishment = document.querySelector('#accomplish');
 let ruff = document.querySelector('#ruff');
-ruff.removeChild(accomplishment);
 let time1 = document.querySelector('#time1');
-time1.innerHTML = '';
 let time2 = document.querySelector('#time2');
-time2.innerHTML = '';
 let submit = document.querySelector('#submit');
-submit.innerHTML = '';
-minute.parentNode.removeChild(minute);
-second.parentNode.removeChild(second);
-
-timer1.innerHTML = `<div class="setters">
+let rightSection = document.querySelector('#tracker'); 
+let card = document.createElement('article');
+rightSection.appendChild(card);
+card.innerHTML = `<article id = 'articleCard'> 
+<p id = 'cardCategory'>${categoryHeader}</p>
+<p id = 'cardTime'>${minute.value} MINUTES ${second.value} SECONDS</p>
+<p id = 'cardTask'>${task.value}</p>
+<div class="setters">
   <div class="minutes-set">
   </div>
   <div class="seconds-set">
@@ -170,11 +171,12 @@ timer1.innerHTML = `<div class="setters">
   </svg>
 </div>
   </div>
-`
+</article>` 
+card.style.backgroundColor = 'red'
 
 let timer2 = document.querySelector('#content');
 
-timer2.innerHTML = `  <span class="display-remain-time"></span>`
+/*timer2.innerHTML = `  <span class="display-remain-time"></span>`*/
 let accomplish = document.querySelector('#accomplish');
 
 
@@ -217,33 +219,31 @@ function changeWholeTime(seconds){
     update(wholeTime,wholeTime);
   }
 }
+// update right side of page
 
-let rightSection = document.querySelector('#tracker'); // update right side of page
-let card = document.createElement('article');
-let removeSection = document.querySelectorAll('.activity-tracker');
-card.innerHTML = `<article id = 'articleCard'> 
-<p id = 'cardCategory'>${categoryHeader}</p>
-<p id = 'cardTime'>${minute.value} MINUTES ${second.value} SECONDS</p>
-<p id = 'cardTask'>${task.value}</p>
-</article>`
-
-
+      const template = document.querySelector('template');
+const node = document.importNode(template.content, true);
 function timer (seconds){ //counts time, takes seconds
   let remainTime = Date.now() + (seconds * 1000);
   displayTimeLeft(seconds);
+
+  let final = document.querySelector('#final');
   
   intervalTimer = setInterval(function(){
     timeLeft = Math.round((remainTime - Date.now()) / 1000);
     if(timeLeft === 0){
-    	submit.innerHTML = `<button id = 'log-button'>Log Activity</button>`
+      final.remove();
+      cat.style.pointerEvents = 'auto';
+      dog.style.pointerEvents = 'auto';
+      fox.style.pointerEvents = 'auto';
+      dog.className = 'hmm';
+      cat.className = 'hmm';
+      fox.className = 'hmm'
       clearInterval(intervalTimer);
       isStarted = true;
       pauseBtn.disabled = true;
       rightSection.appendChild(card);
-      removeSection.forEach(function(a) {
-      	rightSection.removeChild(a);
-      })
-      console.log(categoryHeader);
+      card.style.backgroundColor = 'green';
     }
     displayTimeLeft(timeLeft);
   }, 1000);
@@ -284,89 +284,17 @@ function displayTimeLeft (timeLeft){ //displays time on the input
 pauseBtn.addEventListener('click',pauseTimer);
 });
 
+let logButton = document.querySelector('#log-button');
+let square = document.querySelector('#square');
+let main = document.querySelector('#main');
+let cheese = document.querySelector('#cheeseburger');
+let test = document.querySelector('#test');
+let old = document.querySelector('#old');
 
 
 
 
 
 
-  /*function createCard2() {
-  rightSection.innerHTML = `
-<article class="card card-one">
-      <h5 class="small-title-challenger-one-instance-two">${challengerName1.value}</h5>
-      <p class= "versus">VS</p>
-      <h5 class="small-title-challenger-two small-title-challenger-two-instance-two">${challengerName2.value}</h5>
-    </div>
-    <div class="challenger-status">
-      <h3 class="winner">${challengerName2.value}</h3>
-      <h3 class = "card-winner">WINNER</h3>
-    </div>
-    <div class="guesses-timer-clear">
-      <p> Number of Guesses: <span class="number-of-guesses">${numbGuess}</span></p>
-      <button class="clear-card" type="button" name="button">X</button>
-    </div>
-</article>
 
-  ` + rightSection.innerHTML;
-  	numbGuess = 0;
-}
-
-function createCard1() {
-  rightSection.innerHTML =`
-<article class="card card-one">
-    <div class="challenger-names">
-      <h5 class="small-title-challenger-one-instance-two">${challengerName1.value}</h5>
-      <p class= "versus">VS</p>
-      <h5 class="small-title-challenger-two small-title-challenger-two-instance-two">${challengerName2.value}</h5>
-    </div>
-    <div class="challenger-status">
-      <h3 class="winner">${challengerName1.value}</h3>
-      <h3 class = "card-winner">WINNER</h3>
-    </div>
-    <div class="guesses-timer-clear">
-      <p> Number of Guesses: <span class="number-of-guesses">${numbGuess}</span>  </p>
-      <button class="clear-card" type="button" name="button">X</button>
-    </div>
-</article>
-
-  ` + rightSection.innerHTML;
-  	numbGuess = 0;
-
-}
-function createCard3() {
-  rightSection.innerHTML =`
-<article class="card card-one">
-    <div class="challenger-names">
-      <h5 class="small-title-challenger-one-instance-two">${challengerName1.value}</h5>
-      <p class= "versus">VS</p>
-      <h5 class="small-title-challenger-two small-title-challenger-two-instance-two">${challengerName2.value}</h5>
-    </div>
-    <div class="challenger-status">
-      <h3 class = "card-winner">WINNER</h3>
-            <h3 class="winner">You Both Win!</h3>
-    </div>
-    <div class="guesses-timer-clear">
-      <p> Number of Guesses: <span class="number-of-guesses">${numbGuess}</span>  </p>
-      <button class="clear-card" type="button" name="button">X</button>
-    </div>
-</article>
-
-  ` + rightSection.innerHTML;
-    numbGuess = 0;
-
-}
-
-submitButton.addEventListener("click", determineWinner); //This will run the determineWinner function when the submit button is clicked
-
-
-function determineWinner () {
-  if(player1Guess.value == newNumberGenerated && player2Guess.value == newNumberGenerated) {
-    createCard3()
-  } else if (player2Guess.value == newNumberGenerated) {
-    createCard2();
-  } else if (player1Guess.value == newNumberGenerated) {
-    createCard1();
-  }
-
-}*/
 

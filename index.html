@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
 	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 	<meta charset="UTF-8">
 	<title>Intention Timer</title>
@@ -12,7 +16,55 @@
 </header>
 <nav id = 'test'></nav>
 <main id = 'main'>
-	<div>
+	<div id = 'cheeseburger'>
+		<h1 class = "header1">New Activity</h1>
+	<div id = 'create-activity'>
+		<form>
+		<div id = 'something'><h2>Select Category</h2></div>
+		<div id = 'content'>
+		<h2 class = 'title'><div class = 'hmm'>Study</div></h2>
+		<h2 class = 'title'><div class = 'hmm'>Meditate</div></h2>
+		<h2 class = 'title'><div class = 'hmm'>Exercise</div></h2>
+	</div>
+	<div id = 'else'>
+		<h3>What would you like to accomplish during this time?</h3>
+	</div>
+	<div id = 'ruff'>
+		<input  id = 'accomplish' type="text" placeholder="type here"></input>
+		<span id = category-error></span>
+	</div>
+	<div id = "dog">
+		<h3 id = 'time1'>Minutes</h3>
+		<h3 id = 'time2'>Seconds</h3>
+	</div>
+	<div id = 'wolf'>
+		<input id = 'minute' class = 'input-2' type="number" placeholder = 'minutes'>
+		<input id = 'second' class = 'input-2' type="number" placeholder= "seconds">
+	</div>
+	<div id = 'errors'>
+	<span id = task-error></span>
+	<span id = minute-error></span>
+	</div>
+	<div id = 'submit'>
+	<button id = 'submit-button' type = 'reset'>Start Activity</button>
+</form>
+	</div>
+	</div>
+	</div>
+	<div id = "vertical"></div>
+		<div>
+		<h1 class = "header2">Past Activites</h1>
+	<div id = 'tracker'>
+		<h5 class = 'activity-tracker'>You haven't logged any activities yet.</h3>
+		<h5 class = 'activity-tracker'>Complete the form to the left to get started!</h3>
+	</div>
+	</div>
+</main>
+<script type="text/javascript" src = "app.js"></script>
+</body>
+
+<template>
+		<div id = 'cheeseburger'>
 		<h1 class = "header1">New Activity</h1>
 	<div id = 'create-activity'>
 		<div id = 'something'><h2>Select Category</h2></div>
@@ -45,15 +97,5 @@
 	</div>
 	</div>
 	</div>
-	<div id = "vertical"></div>
-		<div>
-		<h1 class = "header2">Past Activites</h1>
-	<div id = 'tracker'>
-		<h5 class = 'activity-tracker'>You haven't logged any activities yet.</h3>
-		<h5 class = 'activity-tracker'>Complete the form to the left to get started!</h3>
-	</div>
-	</div>
-</main>
-<script type="text/javascript" src = "app.js"></script>
-</body>
+</template>
 </html>
