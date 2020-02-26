@@ -140,9 +140,6 @@ button.addEventListener('click', function(e) {
 removeHeaders.forEach(element => {
   element.remove();
 })
-numberOfCards++;
-let card;
-console.log(numberOfCards);
 let accomplishment = document.querySelector('#accomplish');
 let ruff = document.querySelector('#ruff');
 let time1 = document.querySelector('#time1');
@@ -181,10 +178,6 @@ card.innerHTML = `<article id = 'articleCard'>
   </div>
 </article>` 
 card.style.backgroundColor = 'red'
-StackOfCards.push(card);
-console.log(StackOfCards);
-
-console.log(card);
 
 let timer2 = document.querySelector('#content');
 
@@ -210,14 +203,12 @@ function update(value, timePercent) {
 const displayOutput = document.querySelector('.display-remain-time')
 const pauseBtn = document.getElementById('pause');
 const setterBtns = document.querySelectorAll('button[data-setter]');
-let edd = minute.value;
-console.log(edd);
-let sam = second.value;
-console.log(second);
+let minuteValue = minute.value;
+let secondValue = second.value;
 
 let intervalTimer;
 let timeLeft;
-let wholeTime = (edd * 60) + (sam % 60); // manage this to set the whole time 
+let wholeTime = (minuteValue * 60) + (secondValue % 60); // manage this to set the whole time 
 let isPaused = false;
 let isStarted = false;
 
@@ -237,11 +228,14 @@ function timer (seconds){ //counts time, takes seconds
   displayTimeLeft(seconds);
 
   let final = document.querySelector('#final');
-  
   intervalTimer = setInterval(function(){
     timeLeft = Math.round((remainTime - Date.now()) / 1000);
+    if(timeLeft > 0) {
+  	button.disabled = true;
+  	}
     if(timeLeft === 0){
       final.remove();
+      button.disabled = false;
       category2.style.pointerEvents = 'auto';
       category1.style.pointerEvents = 'auto';
       category3.style.pointerEvents = 'auto';
