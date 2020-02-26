@@ -146,7 +146,7 @@ let time1 = document.querySelector('#time1');
 let time2 = document.querySelector('#time2');
 let submit = document.querySelector('#submit');
 let rightSection = document.querySelector('#tracker'); 
-card = document.createElement('article');
+let card = document.createElement('article');
 rightSection.appendChild(card);
 card.innerHTML = `<article id = 'articleCard'> 
 <p id = 'cardCategory'>Category: ${categoryHeader}</p>
@@ -178,6 +178,8 @@ card.innerHTML = `<article id = 'articleCard'>
   </div>
 </article>` 
 card.style.backgroundColor = 'red'
+numberOfCards++;
+
 
 let timer2 = document.querySelector('#content');
 
@@ -246,9 +248,12 @@ function timer (seconds){ //counts time, takes seconds
       isStarted = true;
       pauseBtn.disabled = true;
       card.style.backgroundColor = 'green';
+    if(numberOfCards > 4) {
+	$(rightSection).find('#articleCard').first().remove();// This will automatically delete a card if more than 4 are generated.
+}
     }
     displayTimeLeft(timeLeft);
-  }, 1000);
+  },);
 }
 function pauseTimer(event){
   if(isStarted === false){
