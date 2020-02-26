@@ -60,7 +60,7 @@ h2 {
 	font-family: 'Montserrat', sans-serif;
 }
 
-.hmm {
+.category {
 	border:2px solid #FFF;
 	padding:20px;
 }
@@ -125,9 +125,9 @@ input {
 	margin:50px auto;
 }
 
-.purple {
-	color:purple;
-	border:3px solid purple;
+.skyblue {
+	color:skyblue;
+	border:3px solid skyblue;
 	padding:20px;
 }
 
@@ -158,8 +158,8 @@ input {
 #submit-button {
     border-radius: 50%;
     font-size: 25px;
-    width: 20%;
-    height: 60px;
+    width: 28%;
+    height: 70px;
 }
 
 input {
@@ -202,7 +202,7 @@ button[data-setter]:hover { opacity: 0.5; }
     font-family: 'Roboto';
     font-weight: 100;
     font-size: 37px;
-    color: #F7958E;
+    color: silver;
     margin-top: 10%;
     margin-bottom: -12%;
 }
@@ -228,7 +228,7 @@ button[data-setter]:hover { opacity: 0.5; }
     left: 16px;
     border-top: 15px solid transparent;
     border-bottom: 15px solid transparent;
-    border-left: 22px solid #F7958E;
+    border-left: 22px solid skyblue;
     margin-top: 146px;
     margin-left: 12px;
 }
@@ -243,7 +243,7 @@ button[data-setter]:hover { opacity: 0.5; }
     height: 30px;
     background-color: transparent;
     border-radius: 1px;
-    border: 5px solid #F7958E;
+    border: 5px solid skyblue;
     border-top: none;
     border-bottom: none;
     margin-top: 142px;
@@ -260,8 +260,8 @@ button[data-setter]:hover { opacity: 0.5; }
 }
 
 .e-c-progress {
-  stroke: #F7958E;
-  stroke-width: 2px;
+  stroke: skyblue;
+  stroke-width: 4px;
   transition: stroke-dashoffset 0.7s;
 }
 

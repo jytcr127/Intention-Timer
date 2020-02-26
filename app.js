@@ -1,64 +1,68 @@
 
-let dog = document.querySelectorAll('.hmm')[0];
-console.log(dog);
+let category1 = document.querySelectorAll('.category')[0];
+console.log(category1);
 
-let cat = document.querySelectorAll('.hmm')[1];
-console.log(cat);
+let category2 = document.querySelectorAll('.category')[1];
+console.log(category2);
 
-let fox = document.querySelectorAll('.hmm')[2];
-console.log(fox);
+let category3 = document.querySelectorAll('.category')[2];
+console.log(category3);
+
+let StackOfCards = [];
+
+let numberOfCards = 0;
 
 
 let categoryHeader;
 
-dog.addEventListener('click', function() {
+category1.addEventListener('click', function() {
 	button.innerText = "Submit";
-	dog.classList.toggle('hmm');
-	dog.classList.toggle('purple');
+	category1.classList.toggle('category');
+	category1.classList.toggle('skyblue');
 
-	if(dog.classList.value === 'purple') {
-		cat.style.pointerEvents = 'none';
-		fox.style.pointerEvents = 'none';
+	if(category1.classList.value === 'skyblue') {
+		category2.style.pointerEvents = 'none';
+		category3.style.pointerEvents = 'none';
 		category_error.innerText = "";
-		categoryHeader = dog.textContent;
+		categoryHeader = category1.textContent;
 	}  
-	if (dog.classList.value !== 'purple') {
-		cat.style.pointerEvents = 'auto';
-		fox.style.pointerEvents = 'auto';
+	if (category1.classList.value !== 'skyblue') {
+		category2.style.pointerEvents = 'auto';
+		category3.style.pointerEvents = 'auto';
 	}
 })
 
-cat.addEventListener('click', function() {
+category2.addEventListener('click', function() {
 	button.innerText = "Submit";
-	cat.classList.toggle('hmm');
-	cat.classList.toggle('purple');
+	category2.classList.toggle('category');
+	category2.classList.toggle('skyblue');
 
-	if(cat.classList.value === 'purple') {
-		dog.style.pointerEvents = 'none';
-		fox.style.pointerEvents = 'none';
+	if(category2.classList.value === 'skyblue') {
+		category1.style.pointerEvents = 'none';
+		category3.style.pointerEvents = 'none';
 		category_error.innerText = "";
-		categoryHeader = cat.textContent;
+		categoryHeader = category2.textContent;
 	}  
-	if (cat.classList.value !== 'purple') {
-		dog.style.pointerEvents = 'auto';
-		fox.style.pointerEvents = 'auto';
+	if (category2.classList.value !== 'skyblue') {
+		category1.style.pointerEvents = 'auto';
+		category3.style.pointerEvents = 'auto';
 	}
 })
 
-fox.addEventListener('click', function() {
+category3.addEventListener('click', function() {
 	button.innerText = "Submit";
-	fox.classList.toggle('hmm');
-	fox.classList.toggle('purple');
+	category3.classList.toggle('category');
+	category3.classList.toggle('skyblue');
 
-	if(fox.classList.value === 'purple') {
-		dog.style.pointerEvents = 'none';
-		cat.style.pointerEvents = 'none';
+	if(category3.classList.value === 'skyblue') {
+		category1.style.pointerEvents = 'none';
+		category2.style.pointerEvents = 'none';
 		category_error.innerText = "";
-		categoryHeader = fox.textContent;
+		categoryHeader = category3.textContent;
 	}  
-	if (fox.classList.value !== 'purple') {
-		dog.style.pointerEvents = 'auto';
-		cat.style.pointerEvents = 'auto';
+	if (category3.classList.value !== 'skyblue') {
+		category1.style.pointerEvents = 'auto';
+		category2.style.pointerEvents = 'auto';
 	}
 })
 
@@ -69,11 +73,11 @@ let category_error = document.getElementById('category-error');
 task.addEventListener('keypress', function(e) {
 	button.innerText = "Submit";
 	task_error.innerText = "";
-	if(dog.classList.value !== 'purple' && fox.classList.value !== 'purple' && cat.classList.value !== 'purple') {
+	if(category1.classList.value !== 'skyblue' && category3.classList.value !== 'skyblue' && category2.classList.value !== 'skyblue') {
 		e.preventDefault();
 		category_error.innerText = "Please choose a category";
 	}
-	if(dog.classList.value === 'purple' || fox.classList.value === 'purple' || cat.classList.value === 'purple') {
+	if(category1.classList.value === 'skyblue' || category3.classList.value === 'skyblue' || category2.classList.value === 'skyblue') {
 		task_error.innerText = "";
 	}
 })
@@ -112,7 +116,7 @@ let removeHeaders = document.querySelectorAll('.activity-tracker');
 
 button.addEventListener('click', function(e) {
 
-		if(dog.classList.value !== 'purple' && fox.classList.value !== 'purple' && cat.classList.value !== 'purple') {
+		if(category1.classList.value !== 'skyblue' && category3.classList.value !== 'skyblue' && category2.classList.value !== 'skyblue') {
 		e.preventDefault();
 		button.innerText = "Please choose a category";
 		newHeader.preventDefault();
@@ -136,18 +140,21 @@ button.addEventListener('click', function(e) {
 removeHeaders.forEach(element => {
   element.remove();
 })
+numberOfCards++;
+let card;
+console.log(numberOfCards);
 let accomplishment = document.querySelector('#accomplish');
 let ruff = document.querySelector('#ruff');
 let time1 = document.querySelector('#time1');
 let time2 = document.querySelector('#time2');
 let submit = document.querySelector('#submit');
 let rightSection = document.querySelector('#tracker'); 
-let card = document.createElement('article');
+card = document.createElement('article');
 rightSection.appendChild(card);
 card.innerHTML = `<article id = 'articleCard'> 
 <p id = 'cardCategory'>Category: ${categoryHeader}</p>
-<p id = 'cardTime'>Time: ${minute.value} MINUTES ${second.value} SECONDS</p>
 <p id = 'cardTask'>Task: ${task.value}</p>
+<p id = 'cardTime'>Time: ${minute.value} MINUTES ${second.value} SECONDS</p>
 <div class="setters">
   <div class="minutes-set">
   </div>
@@ -174,6 +181,10 @@ card.innerHTML = `<article id = 'articleCard'>
   </div>
 </article>` 
 card.style.backgroundColor = 'red'
+StackOfCards.push(card);
+console.log(StackOfCards);
+
+console.log(card);
 
 let timer2 = document.querySelector('#content');
 
@@ -231,16 +242,15 @@ function timer (seconds){ //counts time, takes seconds
     timeLeft = Math.round((remainTime - Date.now()) / 1000);
     if(timeLeft === 0){
       final.remove();
-      cat.style.pointerEvents = 'auto';
-      dog.style.pointerEvents = 'auto';
-      fox.style.pointerEvents = 'auto';
-      dog.className = 'hmm';
-      cat.className = 'hmm';
-      fox.className = 'hmm'
+      category2.style.pointerEvents = 'auto';
+      category1.style.pointerEvents = 'auto';
+      category3.style.pointerEvents = 'auto';
+      category1.className = 'category';
+      category2.className = 'category';
+      category3.className = 'category'
       clearInterval(intervalTimer);
       isStarted = true;
       pauseBtn.disabled = true;
-      rightSection.appendChild(card);
       card.style.backgroundColor = 'green';
     }
     displayTimeLeft(timeLeft);
@@ -252,7 +262,6 @@ function pauseTimer(event){
     isStarted = true;
     this.classList.remove('play');
     this.classList.add('pause');
-    
     setterBtns.forEach(function(btn){
       btn.disabled = true;
       btn.style.opacity = 0.5;
@@ -281,10 +290,6 @@ function displayTimeLeft (timeLeft){ //displays time on the input
 
 pauseBtn.addEventListener('click',pauseTimer);
 });
-
-
-
-
 
 
 
