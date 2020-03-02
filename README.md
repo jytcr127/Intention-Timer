@@ -4,4 +4,4 @@ This is a program that allows a user to keep track of their activities as well a
 
 https://jytcr127.github.io/intention-timer/
 
-<img src="images/screenshot1">
+<img src="images/screenshot1.png">
